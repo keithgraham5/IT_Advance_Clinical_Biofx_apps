@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class patient_identifier(models.Model):
     forename = models.CharField(max_length=100, null=False)
-    surname = models.IntegerField(max=130, null=False)
+    surname = models.CharField(max_length=130, null=False)
     age = models.BooleanField(null=True)
     proband = models.CharField(max_length=100, null=False)
     affected_relatives = models.CharField(max_length=100, null=False)
@@ -22,12 +22,9 @@ class variant_information(models.Model):
     g_nomenclature = models.ForeignKey(patient_identifier, db_column='g_nomenclature', on_delete=models.CASCADE)
     variant_protein = models.CharField(max_length=100, null=False)
     c_nomenclature = models.CharField(max_length=100, null=False)
-    
-class evidence_codes(models.Model):
-    code_ID = models.ForeignKey(patient_identifier, db_column='evidence_codes', on_delete=models.CASCADE)
-    evidence_codes = models.CharField(max_length=100, null=False)
 
- def publish(self):
+
+def publish(self):
     self.published_date = timezone.now()
     self.save()
 
