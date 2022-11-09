@@ -5,6 +5,13 @@ from django.db import models
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django import forms
+  
+
+  
+# creating a form 
+class GeeksForm(forms.Form):
+    geeks_field = forms.ChoiceField(choices = GEEKS_CHOICES)
 
 class patient_identifier(models.Model):
     forename = models.CharField(max_length=100, null=False)
@@ -27,7 +34,20 @@ class evidence_codes(models.Model):
     code_ID = models.ForeignKey(patient_identifier, db_column='evidence_codes', on_delete=models.CASCADE)
     evidence_codes = models.CharField(max_length=100, null=False)
 
- def publish(self):
+class Tumor_Type(model.Models):
+    Tumor_Type = models.CharField(max_length=100)
+
+# iterable
+SequencerChoices = [
+    'MiSeq',
+    'HiSeq',
+    'NextSeq',
+    ]
+
+class TableSequencer(models.Model):
+    Sequencer = models.CharField(choices=SequencerChoices)
+
+def publish(self):
     self.published_date = timezone.now()
     self.save()
 
