@@ -18,6 +18,10 @@ class PID(models.Model):
     Age = models.IntegerField(max=130, null=False)
     Relatives = models.BooleanField(null=True)
 
+
+class Tumor_Type(model.Models):
+    Tumor_Type = models.CharField(max_length=100)
+
 # iterable
 SequencerChoices = [
     'MiSeq',
