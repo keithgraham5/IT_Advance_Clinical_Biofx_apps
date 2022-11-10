@@ -5,13 +5,57 @@
 </head>
 <body>
     <p>Welcome to the BRCA Variant database </p>
-    <p>It works!</p>
 </body>
 
 <h3>Here is the full dataset!</h3>
 
-{{ patients }}
+<table>
+    <tr>
+        <th>Forename</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Proband</th>
+        <th>Gene</th>
+    </tr>
+    {% for patient in patients %}
+    <tr>
+        <td>{{patient.forename}}</td>
+        <td>{{patient.surname}}</td>
+        <td>{{patient.age}}</td>
+        <td>{{patient.proband}}</td>
+        <td>{{patient.g_nomenclature}}</td>
+    </tr>
+    {% endfor %}
+</table>
 
-<footer> Developed by Elizabeth Arnold, Alistair Jones and Keith Graham for an MSc Project</footer>
-<time>Published 2022</time>
+
+<body>
+    <br />
+    <br />
+
+    Printed table!!!
+</body>
+
+
+
+
+    {% for patient in patients.variant_information_set.all %}
+{{ patient }}
+<body>
+    Forename: {{patient.forename}}
+</body>
+<body>
+    Gene: {{patient.g_nomenclature}}
+    Take2: {{variant_information.variant_protein}}
+    Take3: {{patients.variant_protein}}
+    For New:
+    Take2: {{.variant_information.variant_protein}}
+    {% endfor %}
+
+    <br />
+    <br />
+    <footer> Developed by Elizabeth Arnold, Alistair Jones and Keith Graham for an MSc Project</footer>
+    <br />
+
+    <time>Published 2022</time>
 </html>
