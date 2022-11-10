@@ -12,17 +12,19 @@ class patient_identifier(models.Model):
     age = models.BooleanField(null=True)
     proband = models.CharField(max_length=100, null=False)
     affected_relatives = models.CharField(max_length=100, null=False)
-    tumor = models.CharField(max_length=100, null=False)
+    tumor = models.CharField(max_length=100, null=False) #Description
+    Stage = models.CharField(max_length=100, null=False, default="blank") #Tumor stage
     sequencer = models.CharField(max_length=100, null=False)
-    g_nomenclature = models.CharField(max_length=100, null=False)
+    g_nomenclature = models.CharField(max_length=100, null=False) #Variant
     pathogenecity_code = models.CharField(max_length=100, null=False)
     evidence_codes = models.CharField(max_length=100)
 
 class variant_information(models.Model):
     g_nomenclature = models.ForeignKey(patient_identifier, db_column='g_nomenclature', on_delete=models.CASCADE)
-    variant_protein = models.CharField(max_length=100, null=False)
-    c_nomenclature = models.CharField(max_length=100, null=False)
+    variant_protein = models.CharField(max_length=100, null=False) #Variant Protein
+    c_nomenclature = models.CharField(max_length=100, null=False) #Variant cDNA
 
+#Stage
 
 def publish(self):
     self.published_date = timezone.now()
