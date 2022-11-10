@@ -23,6 +23,7 @@ class patient_identifier(models.Model):
     g_nomenclature = models.ForeignKey(variant_information, db_column='g_nomenclature', on_delete=models.CASCADE)
     pathogenecity_code = models.CharField(max_length=100, null=False)
     evidence_codes = models.CharField(max_length=100)
+
 #Stage
 
 def publish(self):
