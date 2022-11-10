@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <h1>BRCA Variant Database</h1>
+    <center>
+        <h1 style="background-color: powderblue; font-size:300%">
+            BRCA Variant Database
+        </h1>
+    </center>
 </head>
 <body>
-    <p>Welcome to the BRCA Variant database </p>
+    <h2 style="font-size:150%">Welcome to the BRCA Variant database </h2>
+    <p>This tool has been developed using Django.</p>
 </body>
 
-<h3>Here is the full dataset!</h3>
+<h3 style="background-color: powderblue; font-size:150%">BRCA dataset Queries:</h3>
+
+<div class="news">
+    <p>BRCA database Queries</p>
+    <menu>
+        <li><button>Database Query</button></li>
+    </menu>
+</div>
+
+
+<h3 style="background-color: powderblue; font-size:150%">BRCA dataset:</h3>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
 
 <table>
     <tr>
@@ -15,7 +37,15 @@
         <th>Surname</th>
         <th>Age</th>
         <th>Proband</th>
-        <th>Gene</th>
+        <th>Affected Relatives</th>
+        <th>Tumour</th>
+        <th>Stage</th>
+        <th>Sequencer</th>
+        <th>Genomic Nomenclature</th>
+        <th>Pathogenicity Code</th>
+        <th>Evidence Code</th>
+        <th>Variant Protein</th>
+        <th>Variant cDNA nomenclature</th>
     </tr>
     {% for patient in patients %}
     <tr>
@@ -23,39 +53,27 @@
         <td>{{patient.surname}}</td>
         <td>{{patient.age}}</td>
         <td>{{patient.proband}}</td>
+        <td>{{patient.affected_relatives}}</td>
+        <td>{{patient.tumor}}</td>
+        <td>{{patient.Stage}}</td>
+        <td>{{patient.sequencer}}</td>
+        <td>{{patient.age}}</td>
         <td>{{patient.g_nomenclature}}</td>
+        <td>{{patient.pathogenecity_code}}</td>
+        <td>{{patient.evidence_codes}}</td>
+        <td>{{patient.g_nomenclature.variant_protein}}</td>
+        <td>{{patient.g_nomenclature.c_nomenclature}}</td>
     </tr>
     {% endfor %}
 </table>
 
 
 <body>
-    <br />
-    <br />
-
-    Printed table!!!
+    <p>This is the full dataset.<p>
 </body>
+<footer> Developed by Elizabeth Arnold, Alistair Jones and Keith Graham for an MSc Project</footer>
+<br />
 
+<time>Published 2022</time>
 
-
-
-    {% for patient in patients.variant_information_set.all %}
-{{ patient }}
-<body>
-    Forename: {{patient.forename}}
-</body>
-<body>
-    Gene: {{patient.g_nomenclature}}
-    Take2: {{variant_information.variant_protein}}
-    Take3: {{patients.variant_protein}}
-    For New:
-    Take2: {{.variant_information.variant_protein}}
-    {% endfor %}
-
-    <br />
-    <br />
-    <footer> Developed by Elizabeth Arnold, Alistair Jones and Keith Graham for an MSc Project</footer>
-    <br />
-
-    <time>Published 2022</time>
 </html>
