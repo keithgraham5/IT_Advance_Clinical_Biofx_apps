@@ -18,11 +18,8 @@ class patient_identifier(models.Model):
     g_nomenclature = models.CharField(max_length=100, null=False) #Variant
     pathogenecity_code = models.CharField(max_length=100, null=False)
     evidence_codes = models.CharField(max_length=100)
-
-class variant_information(models.Model):
-    g_nomenclature = models.ForeignKey(patient_identifier, db_column='g_nomenclature', on_delete=models.CASCADE)
-    variant_protein = models.CharField(max_length=100, null=False) #Variant Protein
-    c_nomenclature = models.CharField(max_length=100, null=False) #Variant cDNA
+    variant_protein = models.CharField(max_length=100, null=False, default="NA") #Variant Protein
+    c_nomenclature = models.CharField(max_length=100, null=False, default="NA") #Variant cDNA
 
 #Stage
 
