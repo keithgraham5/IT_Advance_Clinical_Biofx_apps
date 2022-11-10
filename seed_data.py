@@ -65,8 +65,8 @@ variant_dataframe = variant_dataframe.assign(forename=forename_list)
 variant_dataframe = variant_dataframe.assign(surname=surname_list)
 
 # # Iterate over each row in the dataframe
-# for row in variant_dataframe:
-#     variant = variant_dataframe[]
+for row in variant_dataframe.iterrows():
+    print(row)
 # # Add the contents of each for to the database
 
 
@@ -78,7 +78,7 @@ variant_dataframe = variant_dataframe.assign(surname=surname_list)
 # print(surname)
 # print(forename_list)
 # print(surname_list)
-print(variant_dataframe)
+# print(variant_dataframe)
 
 
 
