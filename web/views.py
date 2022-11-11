@@ -6,7 +6,8 @@ from .models import variant_information
 def variant_list(request):
     patients = patient_identifier.objects.all()
     variants = variant_information.objects.all()
-    return render(request, 'web/variant_list.html', {'patients':patients, 'variants':variants})
+    patient_count = patient_identifier.objects.all().count()
+    return render(request, 'web/variant_list.html', {'patients':patients,'patient_count': patient_count,'variants':variants})
 
 def searchpage(request):
     srh = request.GET['query']
@@ -25,5 +26,6 @@ def searchpage(request):
     patient_identifier.objects.filter(g_nomenclature__g_nomenclature__icontains=srh) | \
     patient_identifier.objects.filter(g_nomenclature__c_nomenclature__icontains=srh) | \
     patient_identifier.objects.filter(g_nomenclature__variant_protein__icontains=srh)
-    params = {'patients':patients,'search': srh}
+    patient_count = patients.count()
+    params = {'patients':patients,'patient_count': patient_count, 'search': srh}
     return render(request, 'web/search_page.html', params)
