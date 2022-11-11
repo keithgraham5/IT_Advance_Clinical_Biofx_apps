@@ -14,15 +14,20 @@
 
 <h3 style="background-color: powderblue; font-size:150%">BRCA dataset Queries:</h3>
 
-<div class="news">
-    <p>BRCA database Queries</p>
-    <menu>
-        <li><button>Database Query</button></li>
+<div>
+    <h2 style="background-color: powderblue; font-size:120%">Filter BRCA database</h2>
+    <form action="{% url 'filter' %}" method="get">
+        <button onclick="action">Filter Database Query</button>
+    </form>  
+</div>
+<div>
+
+<h2 style="background-color: powderblue; font-size:120%">Search BRCA database:</h2>
+        <p></p>Database Query</p>
 	<form action="{% url 'search_result' %}" method="get">
         <input name="query" type="text" placeholder="Search here.." >
         <button class="btn btn-outline-success" type="submit" name="button">Submit</button>
         </form>
-    </menu>
 </div>
 
 
