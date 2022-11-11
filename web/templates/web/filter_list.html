@@ -4,11 +4,38 @@
     <p>BRCA database Queries</p>
 </div>
 
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
 
 <form method="get">
-    {{ filter.form.as_p }}
+        <div class="well">
+      <h4 style="margin-top: 0">Filter Options:</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.forename.label_tag }}
+            <input name="query" type="text" placeholder="Search here.." >
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.surname.label_tag }}
+            <input name="query" type="text" placeholder="Search here.." >
+        </div>
+        <div class="form-group col-sm-4 col-md-3">   
+            {{ filter.form.g_nomenclature.label_tag }}
+            <input name="query" type="text" placeholder="Search here.." >
+        </div>
+        </div>
+       
     <button type="submit">Search</button>
-  </form>
+
+
+</form>
+
+
 <ul>
     <table class="table table-bordered">
     <thead>
