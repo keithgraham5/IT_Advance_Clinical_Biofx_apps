@@ -34,11 +34,10 @@
         <td>{{patient_identifier.forename}}</td>
         <td>{{patient_identifier.surname}}</td>
         <td>{{patient_identifier.age}}</td>
+        {% endfor %}
     <tbody>
     </table>
 
-        <li>{{ patient_identifier.surname }} - {{ user.get_full_name }}</li>
-
     
-  {% endfor %}
+  
   </ul>
