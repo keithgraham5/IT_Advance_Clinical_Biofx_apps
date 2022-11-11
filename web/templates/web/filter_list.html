@@ -1,0 +1,56 @@
+﻿<h3 style="background-color: powderblue; font-size:150%">BRCA dataset Queries:</h3>
+
+<div class="news">
+    <p>BRCA database Queries</p>
+</div>
+
+
+<form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+<ul>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Forename</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Proband</th>
+        <th>Affected Relatives</th>
+        <th>Tumour</th>
+        <th>Stage</th>
+        <th>Sequencer</th>
+        <th>Genomic Nomenclature</th>
+        <th>Gene</th>
+        <th>Pathogenicity Code</th>
+        <th>Evidence Code</th>
+        <th>Variant Protein</th>
+        <th>Variant cDNA nomenclature</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for patient_identifier in filter.qs %}
+        <tr>
+        <td>{{patient_identifier.forename}}</td>
+        <td>{{patient_identifier.surname}}</td>
+        <td>{{patient_identifier.age}}</td>
+        <td>{{patient_identifier.proband}}</td>
+        <td>{{patient_identifier.affected_relatives}}</td>
+        <td>{{patient_identifier.tumor}}</td>
+        <td>{{patient_identifier.Stage}}</td>
+        <td>{{patient_identifier.sequencer}}</td>
+        <td>{{patient_identifier.age}}</td>
+        <td>{{patient_identifier.g_nomenclature}}</td>
+        <td>{{patient_identifier.pathogenecity_code}}</td>
+        <td>{{patient_identifier.evidence_codes}}</td>
+        <td>{{patient_identifier.g_nomenclature.variant_protein}}</td>
+        <td>{{patient_identifier.g_nomenclature.c_nomenclature}}</td>
+        </tr>
+        {% endfor %}
+    <tbody>
+    </table>
+
+    
+  
+  </ul>

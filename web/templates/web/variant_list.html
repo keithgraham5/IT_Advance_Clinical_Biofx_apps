@@ -14,8 +14,32 @@
 
 <h3 style="background-color: powderblue; font-size:150%">BRCA dataset Queries:</h3>
 
-<div class="news">
+<div>
     <p>BRCA database Queries</p>
+    <form action="http://127.0.0.1:8000/filter">
+        <input type="Filter Database Query" value="Going to filter page" />
+    </form>
+        <li><button onclick="href='filter'">Filter Database Query</button></li>
+    
+</div>
+<div>
+
+<form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for patient_identifier in filter.qs %}
+    <li>{{ patient_identifier.surname }} - {{ user.get_full_name }}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+<h3 style="background-color: powderblue; font-size:150%">BRCA dataset:</h3>
+
+
     <menu>
         <li><button>Database Query</button></li>
 	<form action="{% url 'search_result' %}" method="get">
